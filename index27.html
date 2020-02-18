@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      var a = prompt('Введите переменную a:',); 
+	  var b = prompt('Введите значение двух переменных а:',);
+      var res = 0;
+        (Number.isNaN(parseInt(a)) == false && Number.isNaN(parseInt(b)) == false) ?
+        (Number.isInteger(a)  && Number.isInteger(b)) ? 
+		res = ((parseInt(a) + parseInt(a)) == parseInt(b)) ? 'Значения равны' : 'Значения не равны':
+        (Number.isInteger(a)) ? 
+		res = ((parseInt(a) + parseInt(a)) === parseFloat(b)) ? 'Значения равны' : 'Значения не равны' :
+        (Number.isInteger(b)) ?
+		res = ((parseFloat(a) + parseFloat(a)) === parseInt(b)) ? 'Значения равны' : 'Значения не равны' :
+        res = ((parseFloat(a) + parseFloat(a)) === parseFloat(b)) ? 'Значения равны' : 'Значения не равны':
+        res = ((a + a) == b) ? 'Значения равны' : 'Значения не равны';
+      alert(res);
+    </script>
+  </body>
+</html>
