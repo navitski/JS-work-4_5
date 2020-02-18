@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      color = prompt('Гриб белый или красный?');
+      leg = prompt('На ножке юбка? Да или нет?');
+      switch (color){
+        case 'белый':{
+          if (leg == 'да' || leg == 'Да' ) 
+			alert('С грибами нужно быть внимательными!');
+          else 
+			alert('Вы нашли белый гриб!');
+          break;
+        }
+        case 'красный':{
+          if (leg == 'да' || leg == 'Да' ) 
+			alert('А не мухомор ли это?');
+          else 
+			alert('Может это подосиновик?');
+          break;
+        }
+        default: 
+			alert('С грибами нужно быть внимательными');
+        }
+    </script>
+  </body>
+</html>
