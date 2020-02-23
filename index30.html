@@ -5,15 +5,98 @@
   </head>
   <body>
     <script>
-      var x = prompt('Введите число x:');
-      var y = prompt('Введите число y:');
-      var z = +x;
-      i = 2;
-      while (i <= y){
-        z = z * x;
-        i++;
-      }
-      alert('Число '+x+' в степени '+y+' равно '+ z);
+        var x = prompt('Введите число x:');
+        var y = prompt('Введите число y:');
+        var res = 0.0;
+
+        function nod(a, b){
+          var i = Math.abs(a);
+          var f = Math.abs(b);
+          var g = 1;
+          var h = 1;
+                
+			if (i > f) 
+			  var q = f;
+            else 
+			  var q = i;
+            
+			while (g < q){
+              g++;
+                if (f % g === 0 && i % g === 0) {
+                  f /= g;
+                  i /= g;
+                  h *= g;
+                  g = 1;
+                }
+            }
+            return h;
+        }
+
+		function pow(a,b){
+			if (b > 0){
+              var d = 1;
+                for (var i = 0; i < b; i++){
+                d *= a;
+				}
+			}
+            else if (b < 0){
+              var d = 1;
+                for (var i = 0; i > b; i--){
+                  d /= a;
+                }
+            }
+            else d = 1;
+              return d;
+        }
+            
+        function pow$(a,b){
+            var i = 10;
+            while(Number.isInteger(i * b) == false){
+              i *= 10;
+            }
+            var n = nod(i, i * b);
+            var dec = b * i / n;
+            var nem = Math.abs(i / n);
+            if (a < 0 && nem % 2 == 0) 
+			  return 'Значение степени и ее основания непозволительны!';
+            
+			if (Math.abs(a) === 1) {
+                if (dec % 2 === 0)  
+				  return 1;
+                else  
+				  return a;
+            }
+            
+			var up = a;
+            var und = 0.0;
+            while (pow(h, nem)  !== a){
+              if (h === (up + und) / 2)
+			    return pow(h,dec);
+            var h = (up + und) / 2;
+              if (Math.abs(pow(h, nem)) > Math.abs(a))
+			     up = h;
+              else 
+			     und = h;
+            }
+            return pow(h,dec);
+        }
+
+        if (Number.isNaN(parseFloat(x)) == false && Number.isNaN(parseFloat(y)) == false){
+            if (x == 0 && y < 0){
+              alert('Данные значения непозволительны!');
+            }
+            else {
+			if (parseInt(y) === parseFloat(y)) 
+			  res = pow(x,y);
+            else res = pow$(x,y);
+            if (Number.isNaN(parseFloat(res))) 
+			  alert(res);
+			if (res == Infinity)
+              alert('Превышен диапазон допустивых значений!');
+            else alert('Число '+x+' в степени '+y+' равно '+ res);
+			}
+        }
+        else alert('Введеные значения вне допустимого диапазона!');
     </script>
   </body>
 </html>

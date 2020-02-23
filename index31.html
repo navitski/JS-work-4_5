@@ -7,8 +7,8 @@
     <script>
       var n = prompt('Введите число n: ');
       var z = 1;
-      if (n > 1){
-        var i = 2;
+      if (n >= 0){
+        var i = 1;
         do{
             z = z * i;
             i++
@@ -16,6 +16,9 @@
 		while(i <= +n);
           alert('Факториал числа '+n+' равен '+z);
         }
+	  else if(n < 0){
+		alert('Введено недопустимое значение!');
+	  }
     </script>
   </body>
 </html>
