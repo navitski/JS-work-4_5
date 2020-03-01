@@ -7,7 +7,11 @@
     <script>
       var n = prompt('Введите число n: ');
       var z = 1;
-      if (n >= 0){
+      if (isNaN(n) || n.replace(/\s/g, '').length === 0) {
+			alert('Введено не число!');
+			exit;
+	  }
+	  if (n >= 0 && n < 171){
         var i = 1;
         do{
             z = z * i;
@@ -16,9 +20,9 @@
 		while(i <= +n);
           alert('Факториал числа '+n+' равен '+z);
         }
-	  else if(n < 0){
-		alert('Введено недопустимое значение!');
+	  else if(n > 170){
+		alert('Факториал числа свыше 170 не возможно отобразить!');
 	  }
-    </script>
+	</script>
   </body>
 </html>
